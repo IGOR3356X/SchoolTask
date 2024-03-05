@@ -1,17 +1,12 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolTask.Realization
 {
     public class JsonController
     {
-        public void SerializeObject(object obj,string path)
+        public static void SerializeObject(object obj, string path)
         {
             if (obj == null) return;
 
@@ -26,7 +21,7 @@ namespace SchoolTask.Realization
             }
         }
 
-        public T DeserializeObject<T> (string path)
+        public static T DeserializeObject<T>(string path)
         {
             if (string.IsNullOrWhiteSpace(path)) return default;
 

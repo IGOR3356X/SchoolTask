@@ -8,5 +8,16 @@
         string Patronymic { get; set; }
         string Subject { get; set; }
         int NumberClass { get; set; }
+
+        public Teacher(int iD, string name, string surname, string patronymic, string subject, int numberClass)
+        {
+            ID = iD;
+            Name = name;
+            Surname = surname;
+            Patronymic = patronymic;
+            Subject = subject;
+            NumberClass = numberClass;
+        }
     }
+
 }
