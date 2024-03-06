@@ -50,7 +50,8 @@
     <Compile Include="Entities\Academic_preformance.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\Teacher.cs" />
-    <Compile Include="File.cs" />
+    <Compile Include="JsonSaver\Save.cs" />
+    <Compile Include="Realization\File.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Realization\JsonController.cs" />

@@ -10,7 +10,7 @@ namespace SchoolTask
     {
         public string GetFile()
         {
-            string Put = "D:\\Folder\\Json.json";
+            string Put = "D:\\JSON Save\\Json.json";
             return Put;
         }
     }
