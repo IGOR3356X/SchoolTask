@@ -1,20 +1,23 @@
-﻿using Newtonsoft.Json;
-using SchoolTask.Entities;
+﻿using SchoolTask.Entities;
 using SchoolTask.Realization;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolTask.JsonSaver
 {
     internal class Save
     {
-        File file = new File();
-        void GG()
+        file file = new file();
+        public void SaveGG()
         {
-            var String = JsonController.DeserializeObject<Student>(file.GetFile());
+            var StringUS = JsonController.DeserializeObject<Student>(file.GetFile());
+            var List = new List<Student>();
+            List.Add(new Student { Id = 5, Name = "GG", ClassStud = "GG22" });
+            JsonController.SerializeObject(List, file.GetFile());
+            foreach (var Student in List)
+            {
+                Console.WriteLine(Student.Id);
+            }
         }
     }
 }

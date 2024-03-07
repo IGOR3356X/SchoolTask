@@ -10,13 +10,13 @@ namespace SchoolTask
     {
         public static void Main()
         {
+            var save = new Save();
             //var file = new File();
             //var student = new Student() { Id = 1, Name = "Polina Kitskan", ClassStud = "IS 222/1" };
             //JsonController.SerializeObject(student, file.GetFile());
             //JsonController.DeserializeObject<Student>(file.GetFile());
-
-            Inputic.GG();
-            Console.WriteLine();
+            save.SaveGG();
+            //Inputic.GG();
             Console.ReadKey();
         }
 
@@ -26,7 +26,7 @@ namespace SchoolTask
     {
         internal static void GG()
         {
-            File file = new File();
+            file file = new file();
             //Academic_preformance academ = new Academic_preformance();
             //var getStud = new Input();
 
