@@ -7,16 +7,22 @@ namespace SchoolTask.JsonSaver
 {
     internal class Save
     {
-        file file = new file();
+        File file = new File();
         public void SaveGG()
         {
-            var StringUS = JsonController.DeserializeObject<Student>(file.GetFile());
+            var StringUS = JsonController.DeserializeObject<List<Student>>(file.GetFile());
             var List = new List<Student>();
-            List.Add(new Student { Id = 5, Name = "GG", ClassStud = "GG22" });
+            if (StringUS != null)
+            {
+                foreach (var s in StringUS)
+                {
+                    List.Add(s);
+                }
+            }
             JsonController.SerializeObject(List, file.GetFile());
             foreach (var Student in List)
             {
-                Console.WriteLine(Student.Id);
+                Console.WriteLine($"{Student.Id},{Student.Name},{Student.ClassStud}");
             }
         }
     }

@@ -26,7 +26,7 @@ namespace SchoolTask
     {
         internal static void GG()
         {
-            file file = new file();
+            File file = new File();
             //Academic_preformance academ = new Academic_preformance();
             //var getStud = new Input();
 

@@ -1,14 +1,21 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Bson;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
+using Newtonsoft.Json.Serialization;
 using System;
 
 namespace SchoolTask.Entities
 {
+    [Serializable]
     public class Student
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string ClassStud { get; set; }
     }
+}
 
     //class MyList: Student
     //{
@@ -72,5 +79,5 @@ namespace SchoolTask.Entities
     //        var InputClassStud = Convert.ToString(Console.ReadLine());
     //    }
     //}
-}
+
 
