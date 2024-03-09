@@ -9,11 +9,12 @@ using System;
 namespace SchoolTask.Entities
 {
     [Serializable]
-    public class Student
+    internal class Student
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string ClassStud { get; set; }
+        public int Id;
+        public string Name;
+        public string ClassStud;
+        public Academic_preformance academic_Preformance;
     }
 }
 

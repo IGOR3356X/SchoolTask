@@ -8,10 +8,10 @@ namespace SchoolTask.Entities
 {
     internal class Academic_preformance
     {
-        int Id { get; set; }
-        string Name { get; set; }
-        string Subgect1 { get; set; }
-        string Subgect2 { get; set;}
-        string Subgect3 { get; set;}
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Math { get; set; }
+        public int Russian_Language { get; set;}
+        public int PE { get; set;}
     }
 }
