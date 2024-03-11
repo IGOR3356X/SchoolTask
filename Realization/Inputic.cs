@@ -1,9 +1,5 @@
 ﻿using SchoolTask.JsonSaver;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolTask.Realization
 {
@@ -49,7 +45,7 @@ namespace SchoolTask.Realization
                         var TeacherSub = Convert.ToString(Console.ReadLine());
                         Console.Write("Введите класс закреплённый за учителем: ");
                         var TeacherClass = Convert.ToString(Console.ReadLine());
-                        SaveFile.InpTeacher(TeacherName,TeacherSub,TeacherClass);
+                        SaveFile.InpTeacher(TeacherName, TeacherSub, TeacherClass);
                         break;
                     case ConsoleKey.D3:
                         Console.WriteLine("");

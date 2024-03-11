@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SchoolTask.Realization
+﻿namespace SchoolTask.Realization
 {
     internal class File
     {
@@ -13,7 +7,7 @@ namespace SchoolTask.Realization
             string Put = "D:\\JSON Save\\SaveStud.json";
             return Put;
         }
-        
+
         public static string SaveTeacher()
         {
             string Put = "D:\\JSON Save\\SaveTeacher.json";

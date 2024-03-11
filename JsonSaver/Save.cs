@@ -41,6 +41,11 @@ namespace SchoolTask.JsonSaver
 
             JsonController.SerializeObject(TeacherList, File.SaveTeacher());
         }
+
+        public void NewInpGrade()
+        {
+
+        }
         public void InpGrade()
         {
             var StringUS = JsonController.DeserializeObject<List<Academic_preformance>>(File.SaveGrade());
