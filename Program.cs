@@ -9,9 +9,6 @@ namespace SchoolTask
     {
         public static void Main()
         {
-            var save = new Save();
-            // save.NewInpGrade();
-            var data = new DBClass();
             Inputic.GG();
             Console.ReadKey();
         }

@@ -4,7 +4,7 @@
     {
         public static string SaveStud()
         {
-            string Put = "D:\\Folder\\StudInfo.json";
+            string Put = "D:\\JSON Save\\StudInfo.json";
             return Put;
         }
 

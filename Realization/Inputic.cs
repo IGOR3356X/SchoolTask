@@ -24,42 +24,45 @@ namespace SchoolTask.Realization
                     "\n5. Отчислить ученика" +
                     "\n6. Добавить оценки ученику" +
                     "\n7. Вывести успеваемость" +
+                    "\nG.Сенить цвет консоли на зелёный" +
                     "\nB. Выход");
 
                 var user_input = Console.ReadKey();
                 switch (user_input.Key)
                 {
                     case ConsoleKey.D1:
+                        Console.Clear();
                         AddStudent();
                         break;
                     case ConsoleKey.D2:
+                        Console.Clear();
                         AddTeacher();
                         break;
                     case ConsoleKey.D3:
-                        Console.WriteLine("");
+                        Console.Clear();
                         GetActivity.OutStud();
                         break;
                     case ConsoleKey.D4:
-                        Console.WriteLine("");
+                        Console.Clear();
                         GetActivity.OutTeacher();
                         break;
                     case ConsoleKey.D5:
-                        Console.WriteLine("");
+                        Console.Clear();
                         DelStud();
                         break;
                     case ConsoleKey.D6:
-                        Console.WriteLine("");
+                        Console.Clear();
                         AddGrade();
                         break;
                     case ConsoleKey.D7:
-                        Console.WriteLine("");
+                        Console.Clear();
                         GetGrade();
                         break;
                     case ConsoleKey.D8:
-
                         break;
                     case ConsoleKey.G:
                         Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Clear();
                         break;
                     case ConsoleKey.B:
                         Environment.Exit(0);
@@ -84,7 +87,7 @@ namespace SchoolTask.Realization
         }
         private static void AddTeacher()
         {
-            Console.WriteLine("");
+            Console.Clear();
             Console.Write("Напишите Фамилия.И.О: ");
             var TeacherName = Convert.ToString(Console.ReadLine());
             Console.Write("Напишите предмет учителя: ");
