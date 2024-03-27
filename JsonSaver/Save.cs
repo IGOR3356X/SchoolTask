@@ -29,13 +29,16 @@ namespace SchoolTask.JsonSaver
             });
         }
 
-        public void NewInpGrade()
+        public void NewInpGrade(int id)
         {
             var StudList = DBClass.Instanse.Student;
 
-            Console.WriteLine("Введите ID студента: ");
-            var id = Convert.ToInt32(Console.ReadLine());
-            var student = StudList.Find(s => s.Id == id);
+            if (StudList.Count == 0)
+            {
+                Console.WriteLine("Учеников нет");
+                return;
+            }
+            var student = StudList[id];
 
             Console.Write("Введите оценку по Математике: ");
             var MarkMath = Convert.ToInt32(Console.ReadLine());
@@ -44,13 +47,9 @@ namespace SchoolTask.JsonSaver
             Console.Write("Введите оценку по Физкультуре: ");
             var MarkPE = Convert.ToInt32(Console.ReadLine());
 
-            student.Academic_Preformance.Add(new Academic_performance
-            {
-                Math = MarkMath,
-                Russian_Language = MarkRus,
-                PE = MarkPE
-            });
-            
+            student.Academic_Preformance.Math = MarkMath;
+            student.Academic_Preformance.Russian_Language = MarkRus;
+            student.Academic_Preformance.PE = MarkPE;
         }
     }
 }

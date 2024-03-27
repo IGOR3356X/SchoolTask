@@ -1,4 +1,5 @@
-﻿using SchoolTask.Entities;
+﻿using Newtonsoft.Json.Bson;
+using SchoolTask.Entities;
 using SchoolTask.JsonSaver;
 using System;
 
@@ -22,7 +23,8 @@ namespace SchoolTask.Realization
                     "\n4. Вывести всех учителей" +
                     "\n5. Отчислить ученика" +
                     "\n6. Добавить оценки ученику" +
-                    "\n7. Вывести успеваемость");
+                    "\n7. Вывести успеваемость" +
+                    "\nB. Выход");
 
                 var user_input = Console.ReadKey();
                 switch (user_input.Key)
@@ -47,11 +49,20 @@ namespace SchoolTask.Realization
                         break;
                     case ConsoleKey.D6:
                         Console.WriteLine("");
-                        GetSave.NewInpGrade();
+                        AddGrade();
                         break;
                     case ConsoleKey.D7:
                         Console.WriteLine("");
-                        GetActivity.GetGrade();
+                        GetGrade();
+                        break;
+                    case ConsoleKey.D8:
+
+                        break;
+                    case ConsoleKey.G:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        break;
+                    case ConsoleKey.B:
+                        Environment.Exit(0);
                         break;
                     default:
                         Console.WriteLine("Вы нажали неправильную кнопку!");
@@ -87,6 +98,20 @@ namespace SchoolTask.Realization
             GetActivity.OutStud();
             var DelInput = Convert.ToInt32(Console.ReadLine()) - 1;
             GetActivity.DeleteStud(DelInput);
+        }
+        private static void AddGrade()
+        {
+            GetActivity.OutStud();
+            Console.WriteLine("Выберите студента ");
+            var id = Convert.ToInt32(Console.ReadLine()) - 1;
+            GetSave.NewInpGrade(id);
+        }
+        private static void GetGrade()
+        {
+            GetActivity.OutStud();
+            Console.WriteLine("Выбери ученика");
+            var id = Convert.ToInt32(Console.ReadLine()) - 1;
+            GetActivity.SelGrade(id);
         }
     }
 }

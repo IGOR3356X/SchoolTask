@@ -62,16 +62,19 @@ namespace SchoolTask.Realization
                     break;
             }
         }
-        public void GetGrade()
+        public void SelGrade(int id)
         {
-            var StringUS = JsonController.DeserializeObject<List<Academic_performance>>(CeateFile.SaveGrade());
-            var GradList = new List<Academic_performance>();
+            var StudList = DBClass.Instanse.Student;
+            if (StudList[id].Academic_Preformance.Math == 0 && StudList[id].Academic_Preformance.Russian_Language == 0 && StudList[id].Academic_Preformance.PE == 0)
+                Console.WriteLine("У ученика нет оценок");
+            else
+            {
 
-            foreach (var t in StringUS)
-                GradList.Add(t);
-
-            foreach (var t in GradList)
-                Console.WriteLine($"Оценка Математика = {t.Math}, Оценка Рус = {t.Russian_Language}, Оценка Физ-Ра = {t.PE}");
+                Console.WriteLine($"Математика = {StudList[id].Academic_Preformance.Math}, " +
+                    $"Русский язык = {StudList[id].Academic_Preformance.Russian_Language}," +
+                    $"ФИЗ-РА = {StudList[id].Academic_Preformance.PE}");
+            }
+            
         }
     }
 }
