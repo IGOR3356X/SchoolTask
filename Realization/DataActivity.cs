@@ -8,15 +8,15 @@ namespace SchoolTask.Realization
     {
         public void OutStud()
         {
-            var StringUS = JsonController.DeserializeObject<List<Student>>(File.SaveStud());
-            var StudList = new List<Student>();
+            //var StringUS = JsonController.DeserializeObject<List<Student>>(File.SaveStud());
 
-            if (StringUS != null)
-                foreach (var s in StringUS)
-                    StudList.Add(s);
-            else
+            var StudList = DBClass.Instanse.Student;
+
+            if (StudList.Count == 0)
+            {
                 Console.WriteLine("Учеников пока нет!");
-
+                return;
+            }
             for (int i = 0; i < StudList.Count; i++)
             {
                 Student Students = StudList[i];
@@ -26,36 +26,34 @@ namespace SchoolTask.Realization
 
         public void OutTeacher()
         {
-            var StringUS = JsonController.DeserializeObject<List<Teacher>>(File.SaveTeacher());
-            var TeacherList = new List<Teacher>();
+            var TeacherList = DBClass.Instanse.Teachers;
 
-            if (StringUS != null)
-                foreach (var t in StringUS)
-                    TeacherList.Add(t);
-            else
+            if (TeacherList.Count == 0)
+            {
                 Console.WriteLine("Учителей пока нет!");
+            }
 
             for (int i = 0; i < TeacherList.Count; i++)
             {
-                Teacher Teachers = TeacherList[i];
-                Console.WriteLine($"{i + 1}. ID = {Teachers.ID}, Имя = {Teachers.Name}, Предмет = {Teachers.Subject}, Класс = {Teachers.NumberClass}");
+                Teacher Teacher = TeacherList[i];
+                Console.WriteLine($"{ i + 1}. ID = { Teacher.ID},ФИО = { Teacher.Name},Класс = { Teacher.NumberClass},Предмет = {Teacher.Subject}");
             }
         }
         public void DeleteStud(int id)
         {
-            var StringUS = JsonController.DeserializeObject<List<Student>>(File.SaveStud());
-            var StudList = new List<Student>();
+            var StudList = DBClass.Instanse.Student;
 
-            if (StringUS != null)
-                foreach (var t in StringUS)
-                    StudList.Add(t);
+            if (StudList.Count == 0)
+            {
+                Console.WriteLine("Учеников нет!");
+                return;
+            }
             Console.WriteLine("Вы уверены y/n ?");
             var UserAnsver = Console.ReadKey().Key;
             switch (UserAnsver)
             {
                 case ConsoleKey.Y:
                     StudList.RemoveAt(id);
-                    JsonController.SerializeObject(StudList, File.SaveStud());
                     break;
                 case ConsoleKey.N:
                     return;
@@ -66,14 +64,14 @@ namespace SchoolTask.Realization
         }
         public void GetGrade()
         {
-            var StringUS = JsonController.DeserializeObject<List<Academic_preformance>>(File.SaveGrade());
-            var GradList = new List<Academic_preformance>();
+            var StringUS = JsonController.DeserializeObject<List<Academic_performance>>(CeateFile.SaveGrade());
+            var GradList = new List<Academic_performance>();
 
             foreach (var t in StringUS)
                 GradList.Add(t);
 
             foreach (var t in GradList)
-                Console.WriteLine($"ИД = {t.Id}, Имя = {t.Name}, Оценка Математика = {t.Math}, Оценка Рус = {t.Russian_Language}, Оценка Физ-Ра = {t.PE}");
+                Console.WriteLine($"Оценка Математика = {t.Math}, Оценка Рус = {t.Russian_Language}, Оценка Физ-Ра = {t.PE}");
         }
     }
 }

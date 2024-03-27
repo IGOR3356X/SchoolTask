@@ -8,7 +8,7 @@ namespace SchoolTask.Entities
         public int Id;
         public string Name;
         public string ClassStud;
-        public Academic_preformance academic_Preformance;
+        public Academic_performance Academic_Preformance;
     }
 }
 

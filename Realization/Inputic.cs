@@ -1,17 +1,19 @@
-﻿using SchoolTask.JsonSaver;
+﻿using SchoolTask.Entities;
+using SchoolTask.JsonSaver;
 using System;
 
 namespace SchoolTask.Realization
 {
     public class Inputic
     {
+        private static readonly Save GetSave = new Save();
+        private static readonly DataActivity GetActivity = new DataActivity();
+        private static readonly DBClass data = new DBClass();
         internal static void GG()
         {
-            var SaveFile = new Save();
-            var DataActivity = new DataActivity();
-
             while (true)
             {
+                data.Load();
                 Console.WriteLine("Добро пожалоать в приложение 'Школа'" +
                     "\nВыерите действие:" +
                     "\n1. Добавить ученика" +
@@ -26,57 +28,65 @@ namespace SchoolTask.Realization
                 switch (user_input.Key)
                 {
                     case ConsoleKey.D1:
-                        //Console.Write("Напиши ID: ");
-                        //var StudID = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("");
-                        Console.Write("Напиши Имя: ");
-                        var StudName = Convert.ToString(Console.ReadLine());
-                        Console.Write("Напиши Класс: ");
-                        var StudClass = Convert.ToString(Console.ReadLine());
-                        SaveFile.InpStud(StudName, StudClass);
+                        AddStudent();
                         break;
                     case ConsoleKey.D2:
-                        //Console.Write("Напишиите ИД: ");
-                        //var TeacherID = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("");
-                        Console.Write("Напишите Фамилия.И.О: ");
-                        var TeacherName = Convert.ToString(Console.ReadLine());
-                        Console.Write("Напишите предмет учителя: ");
-                        var TeacherSub = Convert.ToString(Console.ReadLine());
-                        Console.Write("Введите класс закреплённый за учителем: ");
-                        var TeacherClass = Convert.ToString(Console.ReadLine());
-                        SaveFile.InpTeacher(TeacherName, TeacherSub, TeacherClass);
+                        AddTeacher();
                         break;
                     case ConsoleKey.D3:
                         Console.WriteLine("");
-                        DataActivity.OutStud();
+                        GetActivity.OutStud();
                         break;
                     case ConsoleKey.D4:
                         Console.WriteLine("");
-                        DataActivity.OutTeacher();
+                        GetActivity.OutTeacher();
                         break;
                     case ConsoleKey.D5:
                         Console.WriteLine("");
-                        DataActivity.OutStud();
-                        var DelInput = Convert.ToInt32(Console.ReadLine()) - 1;
-                        DataActivity.DeleteStud(DelInput);
+                        DelStud();
                         break;
                     case ConsoleKey.D6:
                         Console.WriteLine("");
-                        SaveFile.InpGrade();
+                        GetSave.NewInpGrade();
                         break;
                     case ConsoleKey.D7:
                         Console.WriteLine("");
-                        DataActivity.GetGrade();
+                        GetActivity.GetGrade();
                         break;
                     default:
                         Console.WriteLine("Вы нажали неправильную кнопку!");
                         break;
                 }
                 Console.WriteLine("Нажмите любую клавижу для продолжения...");
+                data.Save();
                 Console.ReadKey();
                 Console.Clear();
             }
+        }
+        private static void AddStudent()
+        {
+            Console.Write("Напиши Имя: ");
+            var StudName = Convert.ToString(Console.ReadLine());
+            Console.Write("Напиши Класс: ");
+            var StudClass = Convert.ToString(Console.ReadLine());
+            GetSave.InpStud(StudName, StudClass);
+        }
+        private static void AddTeacher()
+        {
+            Console.WriteLine("");
+            Console.Write("Напишите Фамилия.И.О: ");
+            var TeacherName = Convert.ToString(Console.ReadLine());
+            Console.Write("Напишите предмет учителя: ");
+            var TeacherSub = Convert.ToString(Console.ReadLine());
+            Console.Write("Введите класс закреплённый за учителем: ");
+            var TeacherClass = Convert.ToString(Console.ReadLine());
+            GetSave.InpTeacher(TeacherName, TeacherSub, TeacherClass);
+        }
+        private static void DelStud()
+        {
+            GetActivity.OutStud();
+            var DelInput = Convert.ToInt32(Console.ReadLine()) - 1;
+            GetActivity.DeleteStud(DelInput);
         }
     }
 }

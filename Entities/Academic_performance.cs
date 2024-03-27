@@ -1,11 +1,14 @@
 ﻿namespace SchoolTask.Entities
 {
-    internal class Academic_preformance
+    internal class Academic_performance
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
         public int Math { get; set; }
         public int Russian_Language { get; set; }
         public int PE { get; set; }
+
+        public void Add(Academic_performance newPreformanse)
+        {
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using SchoolTask.Realization;
+﻿using SchoolTask.Entities;
+using SchoolTask.JsonSaver;
+using SchoolTask.Realization;
 using System;
 
 namespace SchoolTask
@@ -7,6 +9,9 @@ namespace SchoolTask
     {
         public static void Main()
         {
+            var save = new Save();
+            // save.NewInpGrade();
+            var data = new DBClass();
             Inputic.GG();
             Console.ReadKey();
         }

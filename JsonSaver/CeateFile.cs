@@ -1,16 +1,16 @@
 ﻿namespace SchoolTask.Realization
 {
-    internal class File
+    internal class CeateFile
     {
         public static string SaveStud()
         {
-            string Put = "D:\\JSON Save\\SaveStud.json";
+            string Put = "D:\\Folder\\StudInfo.json";
             return Put;
         }
 
         public static string SaveTeacher()
         {
-            string Put = "D:\\JSON Save\\SaveTeacher.json";
+            string Put = "D:\\Folder\\TeacherInfo.json";
             return Put;
         }
 

@@ -47,13 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Academic_preformance.cs" />
+    <Compile Include="Entities\Academic_performance.cs" />
+    <Compile Include="Entities\DBClass.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\Teacher.cs" />
     <Compile Include="JsonSaver\Save.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="JsonSaver\File.cs" />
+    <Compile Include="JsonSaver\CeateFile.cs" />
     <Compile Include="Realization\DataActivity.cs" />
     <Compile Include="Realization\Inputic.cs" />
     <Compile Include="Realization\JsonController.cs" />
